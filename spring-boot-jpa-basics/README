@@ -1,0 +1,23 @@
+Hibernate Default JPA implementation:
+------------------------------------
+Because present in classpath by default
+
+
+Spring Data repository:
+-----------------------
+Short for for Entity DAO
+It handles EntityManager and interact with DB to perform CRUD
+
+Centralized Exception Handler
+--------------------------------
+Extend ResponseEntityExceptionHandler
+
+Java Validation API
+--------------------
+Provides validation annotation for beans
+Implementation: Hibernate-validator
+
+HATEOS Starter
+----------------
+Full form: hyper media as the Engine of Application state
+Along with resource + some metadata(eg links)
