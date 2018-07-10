@@ -16,6 +16,13 @@ Java Validation API
 --------------------
 Provides validation annotation for beans
 Implementation: Hibernate-validator
+http://www.baeldung.com/javax-validation
+http://www.baeldung.com/javax-validation-method-constraints (Validation on Method params and return values)
+
+Spring + Java Validation API
+-----------------------------
+Exception Handling
+
 
 HATEOS Starter
 ----------------
