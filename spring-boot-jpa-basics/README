@@ -24,7 +24,7 @@ Spring + Java Validation API
 Exception Handling
 
 
-HATEOS Starter
+HATEOAS Starter
 ----------------
 Full form: hyper media as the Engine of Application state
 Along with resource + some metadata(eg links)
