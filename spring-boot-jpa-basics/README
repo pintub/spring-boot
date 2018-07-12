@@ -28,3 +28,7 @@ HATEOAS Starter
 ----------------
 Full form: hyper media as the Engine of Application state
 Along with resource + some metadata(eg links)
+
+i18n
+----------
+By using Beans 1. LocaleResolver 2.ResourceMessageBundleSource
