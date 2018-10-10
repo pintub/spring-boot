@@ -1,6 +1,9 @@
 package com.p2.jpa.basics.jpabasics.controller;
 
+import com.p2.jpa.basics.jpabasics.entity.Post;
 import com.p2.jpa.basics.jpabasics.entity.User;
+import com.p2.jpa.basics.jpabasics.exception.UserNotFoundException;
+import com.p2.jpa.basics.jpabasics.service.PostRepository;
 import com.p2.jpa.basics.jpabasics.service.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Resource;
@@ -24,11 +27,15 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PostRepository postRepository;
+
     @GetMapping("/users")
     public List<User> getUsers() {
         return userRepository.findAll();
     }
 
+    //HATEOAS
     @GetMapping("/user/{id}")
     public Resource<User> getUser(@PathVariable Long id) {
         Optional<User> user = userRepository.findById(id);
@@ -38,7 +45,6 @@ public class UserController {
         //retrieveAllUsers
         Resource<User> resource = new Resource<User>(user.get());
         ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).getUsers());
-
         resource.add(linkTo.withRel("all-users"));
 
         return resource;
@@ -60,6 +66,7 @@ public class UserController {
     }
 
     //Best practice to return URI of newly created resource for POST method
+    //Validation of Request Body Bean
     @PostMapping("/createUser")
     public ResponseEntity createUser(@Valid @RequestBody User user) {
         User newUser = userRepository.save(user);
@@ -68,5 +75,38 @@ public class UserController {
                 .path("/{id}").buildAndExpand(newUser.getId()).toUri();
 
         return ResponseEntity.created(location).build();
+    }
+
+    @GetMapping("/users/{id}/posts")
+    public List<Post> retrievePostsOfaUser(@PathVariable Long id) {
+        Optional<User> userOptional = userRepository.findById(id);
+
+        if(!userOptional.isPresent()) {
+            throw new UserNotFoundException("id-" + id);
+        }
+
+        return userOptional.get().getPosts();
+    }
+
+    @PostMapping("/jpa/users/{id}/posts")
+    public ResponseEntity<Object> createPost(@PathVariable long id, @RequestBody Post post) {
+
+        Optional<User> userOptional = userRepository.findById(id);
+
+        if(!userOptional.isPresent()) {
+            throw new UserNotFoundException("id-" + id);
+        }
+
+        User user = userOptional.get();
+
+        post.setUser(user);
+
+        postRepository.save(post);
+
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(post.getId())
+                .toUri();
+
+        return ResponseEntity.created(location).build();
+
     }
 }

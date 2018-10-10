@@ -1,33 +1,4 @@
-Spring Starter : To reduce overhead of adding dependency
-Spring initializer : Quickly create a spring project online,download, use
-Spring Boot : Just focus on application logic of rest service/Web App, rest all ( dispatcher/tomcat will be taken care by auto-configuration ??)
+SPRING BOOT EXAMPLES
 
-
-@SpringBootApplication:
-----------------------------
-1.Says the class is Spring context
-2.Auto configuration enabled
-3.Component Scanning enabled(From same or sub-packages)
-
-Auto-Config details:
---------------------
-1.logging.level.org.springframework: DEBUG Add this to ap.properties to know more
-2.It looks at some class in classpath to auto configure spring beans such as DispatcherServlet, ViewResolver and Embedded Tomcat. Check DEBUG logs.
-
-Default Embedded Webserver tomcat:
----------------------------------
-Because spring-boot-starter-web --> spring-boot-starter-tomcat --> org.apache.tomcat.embed
-
-Spring BOOT actuator:
----------------
-Exposes many rest APIs' to give info about application health, httpTrace, how much a request took and lot cool stuff
-
-Spring BOOT Dev tools:
-----------------------
-Hot deploy on the fly
-
-
-Reference:
------------
-http://springboottutorial.com
-docs.spring.io
+@RestController
+@SpringBootApplication

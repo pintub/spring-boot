@@ -14,8 +14,8 @@ import java.util.Date;
 
 /**
  * RestControllerAdvice = RestController + ControllerAdvice
- * RestController = Cause call returns a ResponseEntity incase of exception
- * ControllerAdvice = To use across all other controllers where the exception willbe handleds
+ * RestController = BeCause call returns a ResponseEntity in case of exception
+ * ControllerAdvice = To use across all other controllers where the exception will be handled
  */
 @RestControllerAdvice
 public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptionHandler {
