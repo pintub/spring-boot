@@ -1,4 +1,4 @@
-JPA
+`**JPA**`
 
 Hibernate Default JPA implementation:
 ------------------------------------
@@ -27,7 +27,7 @@ data.sql(TO run all SQL automatically by Spring, Keep in resource)
 OneToMany Relationship in JPA
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-SPRING BOOT 2.3
+**`SPRING BOOT 2.3`**
 
 Spring Starter : To reduce overhead of adding dependency(Package of dependencies)
 Spring initializer : Quickly create a spring project online,download, use
