@@ -6,7 +6,7 @@ Because present in classpath by default
 
 JPA Terms:
 ---------------
-Entity - Equivalent to Java Object
+Entity - Equivalent to Java Object, JPA creates a corresponding table for this (Class AaaBbb, Table Aaa_Bbb, similar also column)
 EntityManager - Manages Entities , performs CRUD
 Persistence Context - EntityManager keeps track of Entities
 @Transactional - Each DB operation as a transaction
@@ -20,6 +20,11 @@ It handles EntityManager and interact with DB to perform CRUD on Entities
 JPA Implementation KeyNote:
 --------------------------------
 Entity --> DaoService with Entity manager or JPARepository --> Caller of DaoService or JPARepository(example: CommandLineRunner)
+
+**JPA**
+
+table/Column naming wrt Class/Property(Camel case becomes Underscore)
+custom find method based on columns (check naming convention)
 
 Examples in Exercise
 --------------------------------
